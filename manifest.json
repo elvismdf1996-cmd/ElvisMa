@@ -1,0 +1,22 @@
+{
+  "name": "宝可梦属性克制 秒查图",
+  "short_name": "属性秒查",
+  "description": "宝可梦对战进攻 / 防守属性克制秒查工具",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#01030a",
+  "theme_color": "#01030a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

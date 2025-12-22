@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>宝可梦属性克制 · 秒查图</title>
+<link href="manifest.json" rel="manifest"/>
+<style>
+/* Mobile optimization changes */
+
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#01030a;
+      color:#e5e7eb;
+      margin:0;
+      padding:24px;
+      font-size:16px;
+    }
+
+    h1{text-align:center;margin-bottom:4px;letter-spacing:1px}
+    .subtitle{text-align:center;color:#64748b;margin-bottom:14px;font-size:14px}
+
+    .controls{text-align:center;margin-bottom:16px}
+    button{
+      padding:10px 18px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.18);
+      cursor:pointer;
+      background:linear-gradient(180deg,#1e293b,#020617);
+      color:#e5e7eb;
+      margin:0 6px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.45);
+      transition:transform .12s ease, box-shadow .12s ease
+    }
+    button:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,0.6)}
+    button:active{transform:translateY(0);box-shadow:0 4px 14px rgba(0,0,0,0.45)}
+
+    .types{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(92px,1fr));
+      gap:12px;
+      max-width:960px;
+      margin:0 auto
+    }
+    .type{
+      padding:12px 8px;
+      border-radius:16px;
+      text-align:center;
+      cursor:pointer;
+      background:#020617;
+      border:1px solid rgba(255,255,255,0.14);
+      user-select:none;
+      box-shadow:0 6px 16px rgba(0,0,0,0.55);
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease
+    }
+
+    /* 属性颜色（官方系，弱饱和） */
+    .type[data-type="火"]{background:#3b0f14}
+    .type[data-type="水"]{background:#0b2a3d}
+    .type[data-type="草"]{background:#0f2e1c}
+    .type[data-type="电"]{background:#3a2f0a}
+    .type[data-type="冰"]{background:#0f2a2e}
+    .type[data-type="格斗"]{background:#2a0f0f}
+    .type[data-type="毒"]{background:#2a0f2e}
+    .type[data-type="地面"]{background:#2e220f}
+    .type[data-type="飞行"]{background:#1f2440}
+    .type[data-type="超能"]{background:#3a0f2a}
+    .type[data-type="虫"]{background:#26330f}
+    .type[data-type="岩石"]{background:#2a241a}
+    .type[data-type="幽灵"]{background:#1b1433}
+    .type[data-type="龙"]{background:#1a163d}
+    .type[data-type="恶"]{background:#111111}
+    .type[data-type="钢"]{background:#1f2a30}
+    .type[data-type="妖精"]{background:#3a1f2a}
+    .type:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.7)}
+    .type.active{
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,0.85),
+        0 0 18px currentColor,
+        0 12px 30px rgba(0,0,0,0.75);
+    }
+
+    /* 选中发光颜色映射 */
+    .type[data-type="火"]{color:#ef4444}
+    .type[data-type="水"]{color:#38bdf8}
+    .type[data-type="草"]{color:#22c55e}
+    .type[data-type="电"]{color:#facc15}
+    .type[data-type="冰"]{color:#67e8f9}
+    .type[data-type="格斗"]{color:#f87171}
+    .type[data-type="毒"]{color:#c084fc}
+    .type[data-type="地面"]{color:#eab308}
+    .type[data-type="飞行"]{color:#93c5fd}
+    .type[data-type="超能"]{color:#fb7185}
+    .type[data-type="虫"]{color:#84cc16}
+    .type[data-type="岩石"]{color:#d6d3d1}
+    .type[data-type="幽灵"]{color:#a78bfa}
+    .type[data-type="龙"]{color:#818cf8}
+    .type[data-type="恶"]{color:#a3a3a3}
+    .type[data-type="钢"]{color:#cbd5e1}
+    .type[data-type="妖精"]{color:#f9a8d4}
+
+    .panel{
+      max-width:960px;
+      margin:14px auto 0;
+      background:#020617;
+      border-radius:22px;
+      padding:18px 20px;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 14px 36px rgba(0,0,0,0.65)
+    }
+
+    .row{margin-bottom:6px;line-height:1.55;font-size:16px}
+    .good{color:#22c55e}
+    .bad{color:#f87171}
+    .no{color:#38bdf8}
+    .muted{color:#64748b}
+
+    footer{text-align:center;margin-top:26px;color:#64748b;font-size:13px;letter-spacing:.5px}
+  
+/* 手机适配 */
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .types {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+
+  .type {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+
+  .row {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+/* 平板和更大设备适配 */
+@media (min-width: 768px) {
+  .types {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .type {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .panel {
+    padding: 18px 20px;
+  }
+
+  .row {
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+<body>
+<h1>⚔️ 宝可梦属性克制 · 进攻 &amp; 防守秒查图</h1>
+<div class="subtitle">实机 / 排位 / 对战分析 · 1 秒决策</div>
+<div class="controls">
+<button id="modeBtn">当前：防守模式</button>
+<button id="resetBtn">重置属性</button>
+</div>
+<div class="types" id="types"></div>
+<div class="panel" id="defensePanel"><div class="muted">请选择属性</div></div>
+<div class="panel" id="attackPanel"></div>
+<footer>倍率说明：4× 极弱 ｜ 2× 弱点 ｜ ½× 抵抗 ｜ 0× 免疫</footer>
+<script>
+const data={
+  火:{good:['草','冰','虫','钢'],bad:['火','水','岩石','龙'],no:[]},
+  水:{good:['火','地面','岩石'],bad:['水','草','龙'],no:[]},
+  草:{good:['水','地面','岩石'],bad:['火','草','毒','飞行','虫','龙','钢'],no:[]},
+  电:{good:['水','飞行'],bad:['电','草','龙'],no:['地面']},
+  冰:{good:['草','地面','飞行','龙'],bad:['火','水','冰','钢'],no:[]},
+  格斗:{good:['一般','冰','岩石','恶','钢'],bad:['毒','飞行','超能','虫','妖精'],no:['幽灵']},
+  毒:{good:['草','妖精'],bad:['毒','地面','岩石','幽灵'],no:['钢']},
+  地面:{good:['火','电','毒','岩石','钢'],bad:['草','虫'],no:['飞行']},
+  飞行:{good:['草','格斗','虫'],bad:['电','岩石','钢'],no:[]},
+  超能:{good:['格斗','毒'],bad:['超能','钢'],no:['恶']},
+  虫:{good:['草','超能','恶'],bad:['火','格斗','毒','飞行','幽灵','钢','妖精'],no:[]},
+  岩石:{good:['火','冰','飞行','虫'],bad:['格斗','地面','钢'],no:[]},
+  幽灵:{good:['超能','幽灵'],bad:['恶'],no:['一般']},
+  龙:{good:['龙'],bad:['钢'],no:['妖精']},
+  恶:{good:['超能','幽灵'],bad:['格斗','恶','妖精'],no:[]},
+  钢:{good:['冰','岩石','妖精'],bad:['火','水','电','钢'],no:[]},
+  妖精:{good:['格斗','龙','恶'],bad:['火','毒','钢'],no:[]}
+};
+
+let mode='defense';
+let selected=[];
+const typesDiv=document.getElementById('types');
+const defPanel=document.getElementById('defensePanel');
+const atkPanel=document.getElementById('attackPanel');
+
+Object.keys(data).forEach(t=>{
+  const d=document.createElement('div');
+  d.dataset.type=t;
+  d.className='type';
+  d.textContent=t;
+  d.onclick=()=>selectType(t);
+  typesDiv.appendChild(d);
+});
+
+function resetAll(){
+  selected=[];
+  document.querySelectorAll('.type').forEach(t=>t.classList.remove('active'));
+  defPanel.innerHTML='<div class="muted">请选择属性</div>';
+  atkPanel.innerHTML='';
+}
+
+document.getElementById('resetBtn').onclick=resetAll;
+
+document.getElementById('modeBtn').onclick=()=>{
+  mode=mode==='defense'?'attack':'defense';
+  document.getElementById('modeBtn').textContent=`当前：${mode==='defense'?'防守':'进攻'}模式`;
+  resetAll();
+};
+
+function selectType(type){
+  if(mode==='attack'){
+    const a=data[type];
+    defPanel.innerHTML='';
+    atkPanel.innerHTML=`<div class='row'>⚔️ <b>${type}</b> 进攻</div>
+      <div class='row good'>克制：${a.good.join('、')||'无'}</div>
+      <div class='row bad'>被抗：${a.bad.join('、')||'无'}</div>
+      <div class='row no'>无效：${a.no.join('、')||'无'}</div>`;
+    return;
+  }
+
+  if(selected.includes(type)){
+    selected=selected.filter(t=>t!==type);
+  }else{
+    selected.push(type);
+    if(selected.length>2) selected=[type];
+  }
+
+  document.querySelectorAll('.type').forEach(t=>{
+    t.classList.toggle('active',selected.includes(t.textContent));
+  });
+
+  if(selected.length===0){
+    defPanel.innerHTML='<div class="muted">请选择属性</div>';
+    atkPanel.innerHTML='';
+    return;
+  }
+
+  const mul={}; Object.keys(data).forEach(a=>mul[a]=1);
+  selected.forEach(def=>{
+    Object.keys(data).forEach(a=>{
+      if(data[a].good.includes(def)) mul[a]*=2;
+      if(data[a].bad.includes(def)) mul[a]*=0.5;
+      if(data[a].no.includes(def)) mul[a]*=0;
+    });
+  });
+
+  const x4=[],x2=[],h=[],z=[];
+  Object.entries(mul).forEach(([a,v])=>{
+    if(v===4) x4.push(a);
+    else if(v===2) x2.push(a);
+    else if(v===0.5||v===0.25) h.push(a+'('+v+'×)');
+    else if(v===0) z.push(a);
+  });
+
+  defPanel.innerHTML=`<div class='row'>🛡️ 防守：<b>${selected.join(' + ')}</b></div>
+    ${x4.length?`<div class='row bad'>4×：${x4.join('、')}</div>`:''}
+    ${x2.length?`<div class='row bad'>2×：${x2.join('、')}</div>`:''}
+    ${h.length?`<div class='row good'>抵抗：${h.join('、')}</div>`:''}
+    ${z.length?`<div class='row no'>免疫：${z.join('、')}</div>`:''}`;
+
+  if(selected.length===1){
+    const a=data[selected[0]];
+    atkPanel.innerHTML=`<div class='row'>⚔️ <b>${selected[0]}</b> 进攻</div>
+      <div class='row good'>克制：${a.good.join('、')||'无'}</div>
+      <div class='row bad'>被抗：${a.bad.join('、')||'无'}</div>
+      <div class='row no'>无效：${a.no.join('、')||'无'}</div>`;
+  } else atkPanel.innerHTML='<div class="muted">双属性仅显示防守综合结果</div>';
+}
+</script>
+<script>
+// PWA Service Worker 注册
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js');
+  });
+}
+</script>
+</body>
+</html>
