@@ -2,93 +2,77 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="宝可梦属性克制查询工具 - 支持双属性组合查询">
   <meta name="keywords" content="宝可梦,属性克制,Pokemon,Type Chart">
   <title>宝可梦属性克制表</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
+    *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-      background-attachment: fixed;
+      background: #0d0d1a;
       color: #fff;
+      -webkit-font-smoothing: antialiased;
     }
     
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 1rem;
     }
     
-    /* 标题区域 */
     .header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      padding: 0 0.5rem;
     }
     
     .title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: gradient 4s ease infinite;
-      text-shadow: 0 0 40px rgba(255,255,255,0.1);
-    }
-    
-    @keyframes gradient {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
     }
     
     .subtitle {
-      color: #a0a0c0;
-      margin-top: 0.5rem;
-      font-size: 1rem;
+      color: #aaa;
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      line-height: 1.4;
     }
     
-    /* 卡片通用样式 */
     .card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-      margin-bottom: 1.5rem;
+      background: #1e1e35;
+      border-radius: 8px;
+      border: 1px solid #2a2a4a;
+      margin-bottom: 1rem;
       overflow: hidden;
     }
     
     .card-header {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      background: rgba(255,255,255,0.02);
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #2a2a4a;
+      background: #252545;
     }
     
     .card-title {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
     
     .card-body {
-      padding: 1.5rem;
+      padding: 0.8rem;
     }
     
-    /* 已选择区域 */
     .selected-bar {
       display: none;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.8rem;
     }
     
     .selected-bar.show {
@@ -98,52 +82,54 @@
     .selected-info {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
     }
     
     .selected-label {
-      color: #a0a0c0;
+      color: #bbb;
       font-weight: 500;
+      font-size: 0.9rem;
     }
     
     .selected-types {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
     }
     
     .clear-btn {
-      padding: 0.6rem 1.2rem;
-      background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1));
-      color: #ff6b6b;
-      border: 1px solid rgba(255,107,107,0.3);
-      border-radius: 12px;
+      padding: 0.5rem 1rem;
+      background: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+      flex-shrink: 0;
     }
     
-    .clear-btn:hover {
-      background: linear-gradient(135deg, rgba(255,107,107,0.3), rgba(255,107,107,0.2));
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+    .clear-btn:active {
+      background: #ff5252;
     }
     
-    /* 属性按钮网格 */
     .type-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.75rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
     }
     
-    @media (max-width: 768px) {
-      .type-grid { grid-template-columns: repeat(3, 1fr); }
-      .title { font-size: 1.8rem; }
+    @media (min-width: 480px) {
+      .type-grid { grid-template-columns: repeat(6, 1fr); }
     }
     
-    @media (max-width: 480px) {
-      .type-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    @media (min-width: 768px) {
+      .container { padding: 2rem 1rem; }
+      .title { font-size: 2rem; }
+      .subtitle { font-size: 0.9rem; }
+      .type-grid { gap: 10px; }
     }
     
     .type-btn {
@@ -151,96 +137,83 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 0.5rem;
-      border-radius: 16px;
+      padding: 12px 6px;
+      border-radius: 8px;
       border: 2px solid transparent;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      transition: border-color 0.2s;
+      min-height: 70px;
     }
     
-    .type-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 50%);
-      pointer-events: none;
+    @media (min-width: 480px) {
+      .type-btn {
+        padding: 10px 6px;
+        min-height: 65px;
+      }
     }
     
-    .type-btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+    .type-btn:active {
+      border-color: rgba(255,255,255,0.3);
     }
     
     .type-btn.selected {
       border-color: #ffd700;
-      box-shadow: 0 0 20px rgba(255,215,0,0.5), 0 8px 20px rgba(0,0,0,0.3);
-      transform: scale(1.05);
     }
     
     .type-icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.3rem;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+    }
+    
+    @media (min-width: 480px) {
+      .type-icon { font-size: 1.4rem; }
     }
     
     .type-name {
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-size: 0.85rem;
+      font-weight: 600;
       color: #fff;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
     
-    /* 详情面板 */
+    @media (min-width: 480px) {
+      .type-name { font-size: 0.8rem; }
+    }
+    
     .detail-panel {
       display: none;
     }
     
     .detail-panel.show {
       display: block;
-      animation: slideUp 0.4s ease;
-    }
-    
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     
     .type-header {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      border-radius: 16px;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
+      gap: 0.8rem;
+      padding: 0.8rem;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      background: #252545;
     }
     
     .type-icon-large {
-      width: 5rem;
-      height: 5rem;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      position: relative;
+      font-size: 1.6rem;
+      flex-shrink: 0;
     }
     
-    .type-icon-large::before {
-      content: '';
-      position: absolute;
-      top: 5%;
-      left: 15%;
-      width: 30%;
-      height: 20%;
-      background: rgba(255,255,255,0.3);
-      border-radius: 50%;
+    @media (min-width: 480px) {
+      .type-icon-large {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
     }
     
     .type-icons-dual {
@@ -248,183 +221,176 @@
     }
     
     .type-icons-dual .type-icon-large {
-      width: 4rem;
-      height: 4rem;
-      font-size: 2rem;
+      width: 45px;
+      height: 45px;
+      font-size: 1.3rem;
+    }
+    
+    @media (min-width: 480px) {
+      .type-icons-dual .type-icon-large {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
     }
     
     .type-icons-dual .type-icon-large:last-child {
-      margin-left: -1rem;
+      margin-left: -8px;
     }
     
     .type-info h3 {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 0.3rem;
+      margin-bottom: 2px;
+    }
+    
+    @media (min-width: 480px) {
+      .type-info h3 { font-size: 1.2rem; }
     }
     
     .type-info p {
-      color: #a0a0c0;
-      font-size: 0.9rem;
+      color: #aaa;
+      font-size: 0.8rem;
     }
     
-    /* 结果区域 */
     .result-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
     
-    @media (max-width: 900px) {
-      .result-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    @media (min-width: 768px) {
+      .result-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
     }
     
     .result-column h3 {
-      font-size: 1.2rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    
+    @media (min-width: 480px) {
+      .result-column h3 { font-size: 1rem; }
     }
     
     .result-section {
-      margin-bottom: 1rem;
-      padding: 1rem;
-      border-radius: 14px;
-      border: 1px solid;
-      transition: transform 0.2s ease;
+      margin-bottom: 0.6rem;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border-left: 3px solid;
+      background: #252545;
     }
     
-    .result-section:hover {
-      transform: translateX(5px);
+    @media (min-width: 480px) {
+      .result-section {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
     }
     
     .result-section h4 {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.75rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
+    
+    @media (min-width: 480px) {
+      .result-section h4 { font-size: 0.85rem; }
     }
     
     .result-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      min-height: 2rem;
+      gap: 5px;
+      min-height: 1.5rem;
     }
     
     .result-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
+      gap: 3px;
+      padding: 4px 8px;
+      border-radius: 4px;
       color: #fff;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: all 0.2s ease;
-      cursor: default;
     }
     
-    .result-tag:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    @media (min-width: 480px) {
+      .result-tag {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+      }
     }
     
     .empty-text {
       color: #666;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-style: italic;
     }
     
-    /* 防御方颜色 */
-    .weak-4x {
-      background: linear-gradient(135deg, rgba(244,63,94,0.15), rgba(225,29,72,0.1));
-      border-color: rgba(244,63,94,0.3);
-    }
+    .weak-4x { border-color: #f43f5e; }
     .weak-4x h4 { color: #fda4aa; }
     
-    .weak-2x {
-      background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(220,38,38,0.1));
-      border-color: rgba(239,68,68,0.3);
-    }
+    .weak-2x { border-color: #ef4444; }
     .weak-2x h4 { color: #fca5a5; }
     
-    .resist-05x {
-      background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.1));
-      border-color: rgba(59,130,246,0.3);
-    }
+    .resist-05x { border-color: #3b82f6; }
     .resist-05x h4 { color: #93c5fd; }
     
-    .resist-025x {
-      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(79,70,229,0.1));
-      border-color: rgba(99,102,241,0.3);
-    }
+    .resist-025x { border-color: #6366f1; }
     .resist-025x h4 { color: #a5b4fc; }
     
-    .immune {
-      background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(147,51,234,0.1));
-      border-color: rgba(168,85,247,0.3);
-    }
+    .immune { border-color: #a855f7; }
     .immune h4 { color: #d8b4fe; }
     
-    /* 攻击方颜色 */
-    .super-4x {
-      background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.1));
-      border-color: rgba(16,185,129,0.3);
-    }
+    .super-4x { border-color: #10b981; }
     .super-4x h4 { color: #6ee7b7; }
     
-    .super-2x {
-      background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(22,163,74,0.1));
-      border-color: rgba(34,197,94,0.3);
-    }
+    .super-2x { border-color: #22c55e; }
     .super-2x h4 { color: #86efac; }
     
-    .not-very-05x {
-      background: linear-gradient(135deg, rgba(234,179,8,0.15), rgba(202,138,4,0.1));
-      border-color: rgba(234,179,8,0.3);
-    }
+    .not-very-05x { border-color: #eab308; }
     .not-very-05x h4 { color: #fde047; }
     
-    .not-very-025x {
-      background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(234,88,12,0.1));
-      border-color: rgba(249,115,22,0.3);
-    }
+    .not-very-025x { border-color: #f97316; }
     .not-very-025x h4 { color: #fdba74; }
     
-    .no-effect {
-      background: linear-gradient(135deg, rgba(107,114,128,0.15), rgba(75,85,99,0.1));
-      border-color: rgba(107,114,128,0.3);
-    }
+    .no-effect { border-color: #6b7280; }
     .no-effect h4 { color: #d1d5db; }
     
-    /* 使用说明 */
     .help-section .card-body {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
     }
     
-    @media (max-width: 600px) {
-      .help-section .card-body { grid-template-columns: 1fr; }
+    @media (min-width: 480px) {
+      .help-section .card-body {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
     }
     
     .help-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.75rem;
-      background: rgba(255,255,255,0.02);
-      border-radius: 10px;
-      font-size: 0.9rem;
-      color: #c0c0d0;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: #252545;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+    
+    @media (min-width: 480px) {
+      .help-item { font-size: 0.85rem; }
     }
     
     .help-item strong {
@@ -435,20 +401,18 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      margin-top: 0.5rem;
+      margin-top: 6px;
       flex-shrink: 0;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- 标题 -->
     <div class="header">
       <h1 class="title">宝可梦属性克制表</h1>
       <p class="subtitle">点击选择1-2个属性查看克制关系（支持双属性组合）</p>
     </div>
     
-    <!-- 已选择 -->
     <div id="selectedBar" class="card selected-bar">
       <div class="card-body selected-bar">
         <div class="selected-info">
@@ -459,7 +423,6 @@
       </div>
     </div>
     
-    <!-- 属性选择 -->
     <div class="card">
       <div class="card-header">
         <h2 class="card-title">🎨 选择属性</h2>
@@ -469,13 +432,11 @@
       </div>
     </div>
     
-    <!-- 详情面板 -->
     <div id="detailPanel" class="card detail-panel">
       <div class="card-body">
         <div id="typeHeader" class="type-header"></div>
         
         <div class="result-grid">
-          <!-- 防御方 -->
           <div class="result-column">
             <h3>🛡️ 防御方视角（受到的伤害）</h3>
             
@@ -505,7 +466,6 @@
             </div>
           </div>
           
-          <!-- 攻击方 -->
           <div class="result-column">
             <h3>⚔️ 攻击方视角（造成的伤害）</h3>
             
@@ -538,7 +498,6 @@
       </div>
     </div>
     
-    <!-- 使用说明 -->
     <div class="card help-section">
       <div class="card-header">
         <h2 class="card-title">📖 使用说明</h2>
@@ -566,7 +525,7 @@
 
 <script>
 const TYPES = [
-  {id:"normal",name:"一般",color:"#A8A878",icon:"⭐"},
+  {id:"normal",name:"一般",color:"#A8A878",icon:"⚪"},
   {id:"fire",name:"火",color:"#F08030",icon:"🔥"},
   {id:"water",name:"水",color:"#6890F0",icon:"💧"},
   {id:"electric",name:"电",color:"#F8D030",icon:"⚡"},
@@ -576,14 +535,14 @@ const TYPES = [
   {id:"poison",name:"毒",color:"#A040A0",icon:"☠️"},
   {id:"ground",name:"地面",color:"#E0C068",icon:"🌍"},
   {id:"flying",name:"飞行",color:"#A890F0",icon:"🦅"},
-  {id:"psychic",name:"超能力",color:"#F85888",icon:"🔮"},
+  {id:"psychic",name:"超能力",color:"#F85888",icon:"🧠"},
   {id:"bug",name:"虫",color:"#A8B820",icon:"🐛"},
   {id:"rock",name:"岩石",color:"#B8A038",icon:"🪨"},
   {id:"ghost",name:"幽灵",color:"#705898",icon:"👻"},
   {id:"dragon",name:"龙",color:"#7038F8",icon:"🐉"},
-  {id:"dark",name:"恶",color:"#705848",icon:"🌑"},
+  {id:"dark",name:"恶",color:"#705848",icon:"👿"},
   {id:"steel",name:"钢",color:"#B8B8D0",icon:"🔩"},
-  {id:"fairy",name:"妖精",color:"#EE99AC",icon:"✨"}
+  {id:"fairy",name:"妖精",color:"#EE99AC",icon:"💗"}
 ];
 
 const EFF = {
@@ -609,14 +568,12 @@ const EFF = {
 
 let selected = [];
 
-// 初始化
 const typeGrid = document.getElementById('typeGrid');
 const selectedBar = document.getElementById('selectedBar');
 const selectedTypes = document.getElementById('selectedTypes');
 const detailPanel = document.getElementById('detailPanel');
 const typeHeader = document.getElementById('typeHeader');
 
-// 创建属性按钮
 TYPES.forEach(t => {
   const btn = document.createElement('button');
   btn.className = 'type-btn';
@@ -634,9 +591,8 @@ document.getElementById('clearBtn').onclick = () => {
 
 function toggle(id) {
   const idx = selected.indexOf(id);
-  if (idx > -1) {
-    selected.splice(idx, 1);
-  } else {
+  if (idx > -1) selected.splice(idx, 1);
+  else {
     if (selected.length >= 2) selected.shift();
     selected.push(id);
   }
@@ -644,7 +600,6 @@ function toggle(id) {
 }
 
 function update() {
-  // 更新按钮状态
   document.querySelectorAll('.type-btn').forEach(btn => {
     btn.classList.toggle('selected', selected.includes(btn.dataset.id));
   });
@@ -658,13 +613,11 @@ function update() {
   selectedBar.classList.add('show');
   detailPanel.classList.add('show');
   
-  // 更新已选择显示
   selectedTypes.innerHTML = selected.map(id => {
     const t = TYPES.find(x => x.id === id);
     return `<span class="result-tag" style="background:${t.color}">${t.icon} ${t.name}</span>`;
   }).join('');
   
-  // 更新类型头部
   const types = selected.map(id => TYPES.find(x => x.id === id));
   if (selected.length === 1) {
     const t = types[0];
@@ -675,7 +628,6 @@ function update() {
         <p>单属性模式 - 点击其他属性切换为双属性</p>
       </div>
     `;
-    typeHeader.style.background = `linear-gradient(135deg, ${t.color}30, ${t.color}15)`;
   } else {
     const [a, b] = types;
     typeHeader.innerHTML = `
@@ -688,10 +640,8 @@ function update() {
         <p>双属性组合模式</p>
       </div>
     `;
-    typeHeader.style.background = `linear-gradient(135deg, ${a.color}25, ${b.color}25)`;
   }
   
-  // 计算并显示结果
   const def = calcDefense();
   const atk = calcAttack();
   
@@ -730,9 +680,7 @@ function calcAttack() {
   const r = {s4:[], s2:[], n5:[], n25:[], ne:[]};
   if (selected.length === 1) {
     const e = EFF[selected[0]];
-    r.s2 = e.s;
-    r.n5 = e.n;
-    r.ne = e.e;
+    r.s2 = e.s; r.n5 = e.n; r.ne = e.e;
     return r;
   }
   TYPES.forEach(def => {
@@ -759,10 +707,7 @@ function calcAttack() {
 
 function render(id, arr) {
   const el = document.getElementById(id);
-  if (arr.length === 0) {
-    el.innerHTML = '<span class="empty-text">无</span>';
-    return;
-  }
+  if (arr.length === 0) { el.innerHTML = '<span class="empty-text">无</span>'; return; }
   el.innerHTML = arr.map(id => {
     const t = TYPES.find(x => x.id === id);
     return `<span class="result-tag" style="background:${t.color}">${t.icon} ${t.name}</span>`;
