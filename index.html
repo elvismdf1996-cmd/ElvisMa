@@ -1,309 +1,246 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"/>
-<title>宝可梦属性克制 · 秒查图</title>
-<link href="manifest.json" rel="manifest"/>
-<style>
-/* Mobile optimization changes */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="宝可梦属性克制查询工具" />
+  <title>宝可梦属性克制表</title>
+  <style>
+*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content: ""}html,:host{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\!container{width:100%!important}.container{width:100%}@media(min-width:640px){.\!container{max-width:640px!important}.container{max-width:640px}}@media(min-width:768px){.\!container{max-width:768px!important}.container{max-width:768px}}@media(min-width:1024px){.\!container{max-width:1024px!important}.container{max-width:1024px}}@media(min-width:1280px){.\!container{max-width:1280px!important}.container{max-width:1280px}}@media(min-width:1536px){.\!container{max-width:1536px!important}.container{max-width:1536px}}.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.-ml-3{margin-left:-.75rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-14{height:3.5rem}.h-16{height:4rem}.min-h-\[40px\]{min-height:40px}.min-h-screen{min-height:100vh}.w-14{width:3.5rem}.w-16{width:4rem}.max-w-7xl{max-width:80rem}.scale-105{--tw-scale-x: 1.05;--tw-scale-y: 1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse: 0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-blue-500\/30{border-color:#3b82f64d}.border-emerald-500\/30{border-color:#10b9814d}.border-gray-500\/30{border-color:#6b72804d}.border-gray-600{--tw-border-opacity: 1;border-color:rgb(75 85 99 / var(--tw-border-opacity, 1))}.border-gray-700{--tw-border-opacity: 1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-green-500\/30{border-color:#22c55e4d}.border-indigo-500\/30{border-color:#6366f14d}.border-orange-500\/30{border-color:#f973164d}.border-purple-500\/30{border-color:#a855f74d}.border-red-500\/30{border-color:#ef44444d}.border-rose-500\/30{border-color:#f43f5e4d}.border-transparent{border-color:transparent}.border-yellow-500\/30{border-color:#eab3084d}.bg-blue-500{--tw-bg-opacity: 1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-cyan-300{--tw-bg-opacity: 1;background-color:rgb(103 232 249 / var(--tw-bg-opacity, 1))}.bg-gray-400{--tw-bg-opacity: 1;background-color:rgb(156 163 175 / var(--tw-bg-opacity, 1))}.bg-gray-700{--tw-bg-opacity: 1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-gray-800\/50{background-color:#1f293780}.bg-green-500{--tw-bg-opacity: 1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-indigo-600{--tw-bg-opacity: 1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-lime-500{--tw-bg-opacity: 1;background-color:rgb(132 204 22 / var(--tw-bg-opacity, 1))}.bg-orange-500{--tw-bg-opacity: 1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-pink-300{--tw-bg-opacity: 1;background-color:rgb(249 168 212 / var(--tw-bg-opacity, 1))}.bg-pink-500{--tw-bg-opacity: 1;background-color:rgb(236 72 153 / var(--tw-bg-opacity, 1))}.bg-purple-400{--tw-bg-opacity: 1;background-color:rgb(192 132 252 / var(--tw-bg-opacity, 1))}.bg-purple-600{--tw-bg-opacity: 1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-purple-700{--tw-bg-opacity: 1;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1))}.bg-red-500\/20{background-color:#ef444433}.bg-red-700{--tw-bg-opacity: 1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.bg-slate-400{--tw-bg-opacity: 1;background-color:rgb(148 163 184 / var(--tw-bg-opacity, 1))}.bg-yellow-400{--tw-bg-opacity: 1;background-color:rgb(250 204 21 / var(--tw-bg-opacity, 1))}.bg-yellow-600{--tw-bg-opacity: 1;background-color:rgb(202 138 4 / var(--tw-bg-opacity, 1))}.bg-yellow-700{--tw-bg-opacity: 1;background-color:rgb(161 98 7 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-blue-900\/40{--tw-gradient-from: rgb(30 58 138 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(30 58 138 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-900\/40{--tw-gradient-from: rgb(6 78 59 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(6 78 59 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-gray-700\/40{--tw-gradient-from: rgb(55 65 81 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(55 65 81 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-gray-900{--tw-gradient-from: #111827 var(--tw-gradient-from-position);--tw-gradient-to: rgb(17 24 39 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-900\/40{--tw-gradient-from: rgb(20 83 45 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(20 83 45 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-indigo-900\/40{--tw-gradient-from: rgb(49 46 129 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(49 46 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-orange-900\/40{--tw-gradient-from: rgb(124 45 18 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(124 45 18 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-900\/40{--tw-gradient-from: rgb(88 28 135 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(88 28 135 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-red-400{--tw-gradient-from: #f87171 var(--tw-gradient-from-position);--tw-gradient-to: rgb(248 113 113 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-red-900\/40{--tw-gradient-from: rgb(127 29 29 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(127 29 29 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-rose-900\/40{--tw-gradient-from: rgb(136 19 55 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(136 19 55 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-900\/40{--tw-gradient-from: rgb(113 63 18 / .4) var(--tw-gradient-from-position);--tw-gradient-to: rgb(113 63 18 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.via-slate-900{--tw-gradient-to: rgb(15 23 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), #0f172a var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-yellow-400{--tw-gradient-to: rgb(250 204 21 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), #facc15 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-amber-900\/40{--tw-gradient-to: rgb(120 53 15 / .4) var(--tw-gradient-to-position)}.to-blue-400{--tw-gradient-to: #60a5fa var(--tw-gradient-to-position)}.to-cyan-900\/40{--tw-gradient-to: rgb(22 78 99 / .4) var(--tw-gradient-to-position)}.to-fuchsia-900\/40{--tw-gradient-to: rgb(112 26 117 / .4) var(--tw-gradient-to-position)}.to-gray-950{--tw-gradient-to: #030712 var(--tw-gradient-to-position)}.to-green-900\/40{--tw-gradient-to: rgb(20 83 45 / .4) var(--tw-gradient-to-position)}.to-pink-900\/40{--tw-gradient-to: rgb(131 24 67 / .4) var(--tw-gradient-to-position)}.to-red-900\/40{--tw-gradient-to: rgb(127 29 29 / .4) var(--tw-gradient-to-position)}.to-slate-700\/40{--tw-gradient-to: rgb(51 65 85 / .4) var(--tw-gradient-to-position)}.to-teal-900\/40{--tw-gradient-to: rgb(19 78 74 / .4) var(--tw-gradient-to-position)}.to-violet-900\/40{--tw-gradient-to: rgb(76 29 149 / .4) var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.p-3{padding:.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-blue-300{--tw-text-opacity: 1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity: 1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity: 1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity: 1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity: 1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity: 1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-indigo-300{--tw-text-opacity: 1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.text-orange-300{--tw-text-opacity: 1;color:rgb(253 186 116 / var(--tw-text-opacity, 1))}.text-orange-400{--tw-text-opacity: 1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-purple-300{--tw-text-opacity: 1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.text-red-300{--tw-text-opacity: 1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity: 1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-rose-300{--tw-text-opacity: 1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-300{--tw-text-opacity: 1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.shadow-md{--tw-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);--tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.ring-4{--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000)}.ring-yellow-400{--tw-ring-opacity: 1;--tw-ring-color: rgb(250 204 21 / var(--tw-ring-opacity, 1))}.ring-opacity-100{--tw-ring-opacity: 1}.drop-shadow-md{--tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / .07)) drop-shadow(0 2px 2px rgb(0 0 0 / .06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur: blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}:root{--background: #ffffff;--foreground: #171717}@media(prefers-color-scheme:dark){:root{--background: #0a0a0a;--foreground: #ededed}}body{background:var(--background);color:var(--foreground);font-family:Arial,Helvetica,sans-serif}.hover\:scale-105:hover{--tw-scale-x: 1.05;--tw-scale-y: 1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-white\/30:hover{border-color:#ffffff4d}.hover\:bg-red-500\/30:hover{background-color:#ef44444d}.hover\:shadow-lg:hover{--tw-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);--tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}@media(min-width:640px){.sm\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(min-width:768px){.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-sm{font-size:.875rem;line-height:1.25rem}}@media(min-width:1024px){.lg\:grid-cols-9{grid-template-columns:repeat(9,minmax(0,1fr))}}
 
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:#01030a;
-      color:#e5e7eb;
-      margin:0;
-      padding:24px;
-      font-size:16px;
-    }
-
-    h1{text-align:center;margin-bottom:4px;letter-spacing:1px}
-    .subtitle{text-align:center;color:#64748b;margin-bottom:14px;font-size:14px}
-
-    .controls{text-align:center;margin-bottom:16px}
-    button{
-      padding:10px 18px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.18);
-      cursor:pointer;
-      background:linear-gradient(180deg,#1e293b,#020617);
-      color:#e5e7eb;
-      margin:0 6px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.45);
-      transition:transform .12s ease, box-shadow .12s ease
-    }
-    button:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,0.6)}
-    button:active{transform:translateY(0);box-shadow:0 4px 14px rgba(0,0,0,0.45)}
-
-    .types{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(92px,1fr));
-      gap:12px;
-      max-width:960px;
-      margin:0 auto
-    }
-    .type{
-      padding:12px 8px;
-      border-radius:16px;
-      text-align:center;
-      cursor:pointer;
-      background:#020617;
-      border:1px solid rgba(255,255,255,0.14);
-      user-select:none;
-      box-shadow:0 6px 16px rgba(0,0,0,0.55);
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease
-    }
-
-    /* 属性颜色（官方系，弱饱和） */
-    .type[data-type="火"]{background:#3b0f14}
-    .type[data-type="水"]{background:#0b2a3d}
-    .type[data-type="草"]{background:#0f2e1c}
-    .type[data-type="电"]{background:#3a2f0a}
-    .type[data-type="冰"]{background:#0f2a2e}
-    .type[data-type="格斗"]{background:#2a0f0f}
-    .type[data-type="毒"]{background:#2a0f2e}
-    .type[data-type="地面"]{background:#2e220f}
-    .type[data-type="飞行"]{background:#1f2440}
-    .type[data-type="超能"]{background:#3a0f2a}
-    .type[data-type="虫"]{background:#26330f}
-    .type[data-type="岩石"]{background:#2a241a}
-    .type[data-type="幽灵"]{background:#1b1433}
-    .type[data-type="龙"]{background:#1a163d}
-    .type[data-type="恶"]{background:#111111}
-    .type[data-type="钢"]{background:#1f2a30}
-    .type[data-type="妖精"]{background:#3a1f2a}
-    .type:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.7)}
-    .type.active{
-      box-shadow:
-        0 0 0 2px rgba(255,255,255,0.85),
-        0 0 18px currentColor,
-        0 12px 30px rgba(0,0,0,0.75);
-    }
-
-    /* 选中发光颜色映射 */
-    .type[data-type="火"]{color:#ef4444}
-    .type[data-type="水"]{color:#38bdf8}
-    .type[data-type="草"]{color:#22c55e}
-    .type[data-type="电"]{color:#facc15}
-    .type[data-type="冰"]{color:#67e8f9}
-    .type[data-type="格斗"]{color:#f87171}
-    .type[data-type="毒"]{color:#c084fc}
-    .type[data-type="地面"]{color:#eab308}
-    .type[data-type="飞行"]{color:#93c5fd}
-    .type[data-type="超能"]{color:#fb7185}
-    .type[data-type="虫"]{color:#84cc16}
-    .type[data-type="岩石"]{color:#d6d3d1}
-    .type[data-type="幽灵"]{color:#a78bfa}
-    .type[data-type="龙"]{color:#818cf8}
-    .type[data-type="恶"]{color:#a3a3a3}
-    .type[data-type="钢"]{color:#cbd5e1}
-    .type[data-type="妖精"]{color:#f9a8d4}
-
-    .panel{
-      max-width:960px;
-      margin:14px auto 0;
-      background:#020617;
-      border-radius:22px;
-      padding:18px 20px;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 14px 36px rgba(0,0,0,0.65)
-    }
-
-    .row{margin-bottom:6px;line-height:1.55;font-size:16px}
-    .good{color:#22c55e}
-    .bad{color:#f87171}
-    .no{color:#38bdf8}
-    .muted{color:#64748b}
-
-    footer{text-align:center;margin-top:26px;color:#64748b;font-size:13px;letter-spacing:.5px}
-  
-/* 手机适配 */
-@media (max-width: 768px) {
-  body {
-    padding: 16px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .subtitle {
-    font-size: 12px;
-  }
-
-  .types {
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-  }
-
-  .type {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .panel {
-    padding: 14px;
-  }
-
-  .row {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-
-  footer {
-    font-size: 12px;
-  }
-}
-
-/* 平板和更大设备适配 */
-@media (min-width: 768px) {
-  .types {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  }
-
-  .type {
-    padding: 12px;
-    font-size: 16px;
-  }
-
-  .panel {
-    padding: 18px 20px;
-  }
-
-  .row {
-    font-size: 16px;
-  }
-}
-</style>
+  </style>
 </head>
 <body>
-<h1>⚔️ 宝可梦属性克制 · 进攻 &amp; 防守秒查图</h1>
-<div class="subtitle">实机 / 排位 / 对战分析 · 1 秒决策</div>
-<div class="controls">
-<button id="modeBtn">当前：防守模式</button>
-<button id="resetBtn">重置属性</button>
-</div>
-<div class="types" id="types"></div>
-<div class="panel" id="defensePanel"><div class="muted">请选择属性</div></div>
-<div class="panel" id="attackPanel"></div>
-<footer>倍率说明：4× 极弱 ｜ 2× 弱点 ｜ ½× 抵抗 ｜ 0× 免疫</footer>
-<script>
-const data={
-  火:{good:['草','冰','虫','钢'],bad:['火','水','岩石','龙'],no:[]},
-  水:{good:['火','地面','岩石'],bad:['水','草','龙'],no:[]},
-  草:{good:['水','地面','岩石'],bad:['火','草','毒','飞行','虫','龙','钢'],no:[]},
-  电:{good:['水','飞行'],bad:['电','草','龙'],no:['地面']},
-  冰:{good:['草','地面','飞行','龙'],bad:['火','水','冰','钢'],no:[]},
-  格斗:{good:['一般','冰','岩石','恶','钢'],bad:['毒','飞行','超能','虫','妖精'],no:['幽灵']},
-  毒:{good:['草','妖精'],bad:['毒','地面','岩石','幽灵'],no:['钢']},
-  地面:{good:['火','电','毒','岩石','钢'],bad:['草','虫'],no:['飞行']},
-  飞行:{good:['草','格斗','虫'],bad:['电','岩石','钢'],no:[]},
-  超能:{good:['格斗','毒'],bad:['超能','钢'],no:['恶']},
-  虫:{good:['草','超能','恶'],bad:['火','格斗','毒','飞行','幽灵','钢','妖精'],no:[]},
-  岩石:{good:['火','冰','飞行','虫'],bad:['格斗','地面','钢'],no:[]},
-  幽灵:{good:['超能','幽灵'],bad:['恶'],no:['一般']},
-  龙:{good:['龙'],bad:['钢'],no:['妖精']},
-  恶:{good:['超能','幽灵'],bad:['格斗','恶','妖精'],no:[]},
-  钢:{good:['冰','岩石','妖精'],bad:['火','水','电','钢'],no:[]},
-  妖精:{good:['格斗','龙','恶'],bad:['火','毒','钢'],no:[]}
-};
+  <div id="app"></div>
+  <script type="module">
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))o(r);new MutationObserver(r=>{for(const i of r)if(i.type==="childList")for(const n of i.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&o(n)}).observe(document,{childList:!0,subtree:!0});function t(r){const i={};return r.integrity&&(i.integrity=r.integrity),r.referrerPolicy&&(i.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?i.credentials="include":r.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function o(r){if(r.ep)return;r.ep=!0;const i=t(r);fetch(r.href,i)}})();const c=[{id:"normal",name:"一般",color:"#A8A878",bgColor:"bg-gray-400",icon:"⭐"},{id:"fire",name:"火",color:"#F08030",bgColor:"bg-orange-500",icon:"🔥"},{id:"water",name:"水",color:"#6890F0",bgColor:"bg-blue-500",icon:"💧"},{id:"electric",name:"电",color:"#F8D030",bgColor:"bg-yellow-400",icon:"⚡"},{id:"grass",name:"草",color:"#78C850",bgColor:"bg-green-500",icon:"🌿"},{id:"ice",name:"冰",color:"#98D8D8",bgColor:"bg-cyan-300",icon:"❄️"},{id:"fighting",name:"格斗",color:"#C03028",bgColor:"bg-red-700",icon:"👊"},{id:"poison",name:"毒",color:"#A040A0",bgColor:"bg-purple-600",icon:"☠️"},{id:"ground",name:"地面",color:"#E0C068",bgColor:"bg-yellow-600",icon:"🌍"},{id:"flying",name:"飞行",color:"#A890F0",bgColor:"bg-purple-400",icon:"🦅"},{id:"psychic",name:"超能力",color:"#F85888",bgColor:"bg-pink-500",icon:"🔮"},{id:"bug",name:"虫",color:"#A8B820",bgColor:"bg-lime-500",icon:"🐛"},{id:"rock",name:"岩石",color:"#B8A038",bgColor:"bg-yellow-700",icon:"🪨"},{id:"ghost",name:"幽灵",color:"#705898",bgColor:"bg-purple-700",icon:"👻"},{id:"dragon",name:"龙",color:"#7038F8",bgColor:"bg-indigo-600",icon:"🐉"},{id:"dark",name:"恶",color:"#705848",bgColor:"bg-gray-700",icon:"🌑"},{id:"steel",name:"钢",color:"#B8B8D0",bgColor:"bg-slate-400",icon:"🔩"},{id:"fairy",name:"妖精",color:"#EE99AC",bgColor:"bg-pink-300",icon:"✨"}],f={normal:{superEffective:[],notVeryEffective:["rock","steel"],noEffect:["ghost"]},fire:{superEffective:["grass","ice","bug","steel"],notVeryEffective:["fire","water","rock","dragon"],noEffect:[]},water:{superEffective:["fire","ground","rock"],notVeryEffective:["water","grass","dragon"],noEffect:[]},electric:{superEffective:["water","flying"],notVeryEffective:["electric","grass","dragon"],noEffect:["ground"]},grass:{superEffective:["water","ground","rock"],notVeryEffective:["fire","grass","poison","flying","bug","dragon","steel"],noEffect:[]},ice:{superEffective:["grass","ground","flying","dragon"],notVeryEffective:["fire","water","ice","steel"],noEffect:[]},fighting:{superEffective:["normal","ice","rock","dark","steel"],notVeryEffective:["poison","flying","psychic","bug","fairy"],noEffect:["ghost"]},poison:{superEffective:["grass","fairy"],notVeryEffective:["poison","ground","rock","ghost"],noEffect:["steel"]},ground:{superEffective:["fire","electric","poison","rock","steel"],notVeryEffective:["grass","bug"],noEffect:["flying"]},flying:{superEffective:["grass","fighting","bug"],notVeryEffective:["electric","rock","steel"],noEffect:[]},psychic:{superEffective:["fighting","poison"],notVeryEffective:["psychic","steel"],noEffect:["dark"]},bug:{superEffective:["grass","psychic","dark"],notVeryEffective:["fire","fighting","poison","flying","ghost","steel","fairy"],noEffect:[]},rock:{superEffective:["fire","ice","flying","bug"],notVeryEffective:["fighting","ground","steel"],noEffect:[]},ghost:{superEffective:["psychic","ghost"],notVeryEffective:["dark"],noEffect:["normal"]},dragon:{superEffective:["dragon"],notVeryEffective:["steel"],noEffect:["fairy"]},dark:{superEffective:["psychic","ghost"],notVeryEffective:["fighting","dark","fairy"],noEffect:[]},steel:{superEffective:["ice","rock","fairy"],notVeryEffective:["fire","water","electric","steel"],noEffect:[]},fairy:{superEffective:["fighting","dragon","dark"],notVeryEffective:["fire","poison","steel"],noEffect:[]}};let l=[];const u=2;function x(){const s=document.getElementById("app");if(!s){console.error("App element not found");return}s.innerHTML=`
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-950 py-8 px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- 标题 -->
+        <div class="text-center mb-8">
+          <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-400 via-yellow-400 to-blue-400 bg-clip-text text-transparent mb-2">
+            宝可梦属性克制表
+          </h1>
+          <p class="text-gray-300 text-sm md:text-base">
+            点击选择1-2个属性查看克制关系（支持双属性组合）
+          </p>
+        </div>
 
-let mode='defense';
-let selected=[];
-const typesDiv=document.getElementById('types');
-const defPanel=document.getElementById('defensePanel');
-const atkPanel=document.getElementById('attackPanel');
+        <!-- 已选择的属性 -->
+        <div id="selected-types-bar" class="bg-gray-800/50 backdrop-blur rounded-2xl shadow-xl p-4 mb-6 border border-gray-700">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <span class="text-gray-300 font-semibold">已选择：</span>
+              <div id="selected-types-display" class="flex gap-2 min-h-[40px] items-center">
+                <span class="text-gray-500 text-sm">未选择属性</span>
+              </div>
+            </div>
+            <button 
+              id="clear-btn"
+              class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg transition-colors font-semibold text-sm border border-red-500/30"
+            >
+              清除选择
+            </button>
+          </div>
+        </div>
 
-Object.keys(data).forEach(t=>{
-  const d=document.createElement('div');
-  d.dataset.type=t;
-  d.className='type';
-  d.textContent=t;
-  d.onclick=()=>selectType(t);
-  typesDiv.appendChild(d);
-});
+        <!-- 属性网格 -->
+        <div class="bg-gray-800/50 backdrop-blur rounded-2xl shadow-xl p-6 mb-6 border border-gray-700">
+          <h2 class="text-xl font-bold text-white mb-4">选择属性</h2>
+          <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3">
+            ${c.map(e=>v(e)).join("")}
+          </div>
+        </div>
 
-function resetAll(){
-  selected=[];
-  document.querySelectorAll('.type').forEach(t=>t.classList.remove('active'));
-  defPanel.innerHTML='<div class="muted">请选择属性</div>';
-  atkPanel.innerHTML='';
-}
+        <!-- 详细信息面板 -->
+        <div id="detail-panel" class="hidden">
+          <div class="bg-gray-800/50 backdrop-blur rounded-2xl shadow-xl p-6 border border-gray-700">
+            <div id="selected-type-header" class="mb-6"></div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- 攻击方视角 -->
+              <div class="space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>⚔️</span> 攻击方视角
+                </h3>
+                
+                <!-- 4倍克制 -->
+                <div class="bg-gradient-to-r from-emerald-900/40 to-green-900/40 rounded-xl p-4 border border-emerald-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">💥</span>
+                    <h4 class="font-semibold text-emerald-300">超强克制 (4倍伤害)</h4>
+                  </div>
+                  <div id="super-effective-4x" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 2倍克制 -->
+                <div class="bg-gradient-to-r from-green-900/40 to-teal-900/40 rounded-xl p-4 border border-green-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">💪</span>
+                    <h4 class="font-semibold text-green-300">克制 (2倍伤害)</h4>
+                  </div>
+                  <div id="super-effective" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 0.5倍抵抗 -->
+                <div class="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border border-yellow-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🛡️</span>
+                    <h4 class="font-semibold text-yellow-300">抵抗 (0.5倍伤害)</h4>
+                  </div>
+                  <div id="not-very-effective" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 0.25倍抵抗 -->
+                <div class="bg-gradient-to-r from-orange-900/40 to-red-900/40 rounded-xl p-4 border border-orange-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🧱</span>
+                    <h4 class="font-semibold text-orange-300">强抵抗 (0.25倍伤害)</h4>
+                  </div>
+                  <div id="not-very-effective-025x" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 无效 -->
+                <div class="bg-gradient-to-r from-gray-700/40 to-slate-700/40 rounded-xl p-4 border border-gray-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🚫</span>
+                    <h4 class="font-semibold text-gray-300">无效 (0倍伤害)</h4>
+                  </div>
+                  <div id="no-effect" class="flex flex-wrap gap-2"></div>
+                </div>
+              </div>
+              
+              <!-- 防御方视角 -->
+              <div class="space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>🛡️</span> 防御方视角
+                </h3>
+                
+                <!-- 4倍被克制 -->
+                <div class="bg-gradient-to-r from-rose-900/40 to-red-900/40 rounded-xl p-4 border border-rose-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">☠️</span>
+                    <h4 class="font-semibold text-rose-300">极度弱点 (受到4倍伤害)</h4>
+                  </div>
+                  <div id="weak-to-4x" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 2倍被克制 -->
+                <div class="bg-gradient-to-r from-red-900/40 to-pink-900/40 rounded-xl p-4 border border-red-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">⚠️</span>
+                    <h4 class="font-semibold text-red-300">被克制 (受到2倍伤害)</h4>
+                  </div>
+                  <div id="weak-to" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 0.5倍抵抗 -->
+                <div class="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 rounded-xl p-4 border border-blue-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">✓</span>
+                    <h4 class="font-semibold text-blue-300">抵抗 (受到0.5倍伤害)</h4>
+                  </div>
+                  <div id="resistant-to" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 0.25倍抵抗 -->
+                <div class="bg-gradient-to-r from-indigo-900/40 to-violet-900/40 rounded-xl p-4 border border-indigo-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🛡️</span>
+                    <h4 class="font-semibold text-indigo-300">强抵抗 (受到0.25倍伤害)</h4>
+                  </div>
+                  <div id="resistant-to-025x" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 免疫 -->
+                <div class="bg-gradient-to-r from-purple-900/40 to-fuchsia-900/40 rounded-xl p-4 border border-purple-500/30">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">💫</span>
+                    <h4 class="font-semibold text-purple-300">免疫 (受到0倍伤害)</h4>
+                  </div>
+                  <div id="immune-to" class="flex flex-wrap gap-2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-document.getElementById('resetBtn').onclick=resetAll;
+        <!-- 使用说明 -->
+        <div class="bg-gray-800/50 backdrop-blur rounded-2xl shadow-xl p-6 mt-6 border border-gray-700">
+          <h2 class="text-xl font-bold text-white mb-4">📖 使用说明</h2>
+          <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-300">
+            <div class="flex items-start gap-2">
+              <span class="text-emerald-400 font-bold">•</span>
+              <span><strong class="text-emerald-300">双属性模式</strong>：选择两个属性查看组合后的克制关系</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-green-400 font-bold">•</span>
+              <span><strong class="text-green-300">4倍伤害</strong>：双属性同时对某属性克制时（2×2=4）</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">•</span>
+              <span><strong class="text-red-300">4倍弱点</strong>：双属性同时被某属性克制时（2×2=4）</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-orange-400 font-bold">•</span>
+              <span><strong class="text-orange-300">0.25倍抵抗</strong>：双属性同时抵抗某属性时（0.5×0.5=0.25）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,m(),b()}function v(s){return`
+    <button
+      data-type-id="${s.id}"
+      class="type-button group relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-white/30"
+      style="background-color: ${s.color};"
+    >
+      <span class="text-2xl mb-1">${s.icon}</span>
+      <span class="text-white font-bold text-xs md:text-sm drop-shadow-md">${s.name}</span>
+    </button>
+  `}function m(){const s=document.querySelectorAll(".type-button");s.forEach(e=>{e.addEventListener("click",()=>{const t=e.getAttribute("data-type-id");t&&(y(t),p(s))})})}function b(){const s=document.getElementById("clear-btn");s&&s.addEventListener("click",()=>{l=[];const e=document.querySelectorAll(".type-button");p(e),g(),document.getElementById("detail-panel")?.classList.add("hidden")})}function y(s){const e=l.indexOf(s);e>-1?l.splice(e,1):(l.length>=u&&l.shift(),l.push(s)),g(),l.length>0?w(l):document.getElementById("detail-panel")?.classList.add("hidden")}function p(s){s.forEach(e=>{const t=e.getAttribute("data-type-id");l.includes(t||"")?e.classList.add("ring-4","ring-yellow-400","ring-opacity-100","scale-105"):e.classList.remove("ring-4","ring-yellow-400","ring-opacity-100","scale-105")})}function g(){const s=document.getElementById("selected-types-display");if(!s)return;if(l.length===0){s.innerHTML='<span class="text-gray-500 text-sm">未选择属性</span>';return}const e=l.map(t=>{const o=c.find(r=>r.id===t);return o?`
+      <div 
+        class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-white text-sm font-semibold shadow-md"
+        style="background-color: ${o.color};"
+      >
+        <span>${o.icon}</span>
+        <span>${o.name}</span>
+      </div>
+    `:""}).join("");s.innerHTML=e}function h(s){const e={weak4x:[],weak2x:[],resistant05x:[],resistant025x:[],immune:[]};for(const t of c){let o=1;for(const r of s){const i=f[t.id];i.noEffect.includes(r)?o*=0:i.superEffective.includes(r)?o*=2:i.notVeryEffective.includes(r)&&(o*=.5)}o===0?e.immune.push(t.id):o>=4?e.weak4x.push(t.id):o>=2?e.weak2x.push(t.id):o<=.25?e.resistant025x.push(t.id):o<=.5&&e.resistant05x.push(t.id)}return e}function E(s){const e={super4x:[],super2x:[],notVery05x:[],notVery025x:[],noEffect:[]};if(s.length===1){const t=f[s[0]];return e.super2x=t.superEffective,e.notVery05x=t.notVeryEffective,e.noEffect=t.noEffect,e}for(const t of c){const o=[];for(const i of s){const n=f[i];n.noEffect.includes(t.id)?o.push(0):n.superEffective.includes(t.id)?o.push(2):n.notVeryEffective.includes(t.id)?o.push(.5):o.push(1)}if(o.includes(0))continue;const r=Math.min(...o);r>=2?e.super4x.push(t.id):r>1?e.super2x.push(t.id):r<.5?e.notVery025x.push(t.id):r<1&&e.notVery05x.push(t.id)}for(const t of c)s.every(r=>f[r].noEffect.includes(t.id))&&e.noEffect.push(t.id);return e}function w(s){const e=document.getElementById("detail-panel"),t=document.getElementById("selected-type-header");if(!e||!t)return;e.classList.remove("hidden");const o=s.map(n=>c.find(d=>d.id===n)).filter(Boolean);if(s.length===1){const n=o[0];t.innerHTML=`
+      <div class="flex items-center gap-4 p-4 rounded-xl border border-gray-600" style="background-color: ${n.color}30;">
+        <div class="flex items-center justify-center w-16 h-16 rounded-full" style="background-color: ${n.color};">
+          <span class="text-3xl">${n.icon}</span>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">${n.name}属性</h3>
+          <p class="text-sm text-gray-300">单属性模式 - 点击其他属性切换为双属性</p>
+        </div>
+      </div>
+    `}else{const[n,d]=o;t.innerHTML=`
+      <div class="flex items-center gap-4 p-4 rounded-xl border border-gray-600" style="background: linear-gradient(135deg, ${n.color}30, ${d.color}30);">
+        <div class="flex items-center">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full" style="background-color: ${n.color};">
+            <span class="text-2xl">${n.icon}</span>
+          </div>
+          <div class="flex items-center justify-center w-14 h-14 rounded-full -ml-3" style="background-color: ${d.color};">
+            <span class="text-2xl">${d.icon}</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">${n.name} / ${d.name}</h3>
+          <p class="text-sm text-gray-300">双属性组合模式</p>
+        </div>
+      </div>
+    `}const r=E(s),i=h(s);a("super-effective-4x",r.super4x),a("super-effective",r.super2x),a("not-very-effective",r.notVery05x),a("not-very-effective-025x",r.notVery025x),a("no-effect",r.noEffect),a("weak-to-4x",i.weak4x),a("weak-to",i.weak2x),a("resistant-to",i.resistant05x),a("resistant-to-025x",i.resistant025x),a("immune-to",i.immune),e.scrollIntoView({behavior:"smooth",block:"start"})}function a(s,e){const t=document.getElementById(s);if(!t)return;if(e.length===0){t.innerHTML='<span class="text-sm text-gray-500">无</span>';return}const o=e.map(r=>{const i=c.find(n=>n.id===r);return i?`
+      <div 
+        class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-white text-xs md:text-sm font-semibold shadow-md transition-transform hover:scale-105 cursor-pointer"
+        style="background-color: ${i.color};"
+      >
+        <span>${i.icon}</span>
+        <span>${i.name}</span>
+      </div>
+    `:""}).join("");t.innerHTML=o}x();
 
-document.getElementById('modeBtn').onclick=()=>{
-  mode=mode==='defense'?'attack':'defense';
-  document.getElementById('modeBtn').textContent=`当前：${mode==='defense'?'防守':'进攻'}模式`;
-  resetAll();
-};
-
-function selectType(type){
-  if(mode==='attack'){
-    const a=data[type];
-    defPanel.innerHTML='';
-    atkPanel.innerHTML=`<div class='row'>⚔️ <b>${type}</b> 进攻</div>
-      <div class='row good'>克制：${a.good.join('、')||'无'}</div>
-      <div class='row bad'>被抗：${a.bad.join('、')||'无'}</div>
-      <div class='row no'>无效：${a.no.join('、')||'无'}</div>`;
-    return;
-  }
-
-  if(selected.includes(type)){
-    selected=selected.filter(t=>t!==type);
-  }else{
-    selected.push(type);
-    if(selected.length>2) selected=[type];
-  }
-
-  document.querySelectorAll('.type').forEach(t=>{
-    t.classList.toggle('active',selected.includes(t.textContent));
-  });
-
-  if(selected.length===0){
-    defPanel.innerHTML='<div class="muted">请选择属性</div>';
-    atkPanel.innerHTML='';
-    return;
-  }
-
-  const mul={}; Object.keys(data).forEach(a=>mul[a]=1);
-  selected.forEach(def=>{
-    Object.keys(data).forEach(a=>{
-      if(data[a].good.includes(def)) mul[a]*=2;
-      if(data[a].bad.includes(def)) mul[a]*=0.5;
-      if(data[a].no.includes(def)) mul[a]*=0;
-    });
-  });
-
-  const x4=[],x2=[],h=[],z=[];
-  Object.entries(mul).forEach(([a,v])=>{
-    if(v===4) x4.push(a);
-    else if(v===2) x2.push(a);
-    else if(v===0.5||v===0.25) h.push(a+'('+v+'×)');
-    else if(v===0) z.push(a);
-  });
-
-  defPanel.innerHTML=`<div class='row'>🛡️ 防守：<b>${selected.join(' + ')}</b></div>
-    ${x4.length?`<div class='row bad'>4×：${x4.join('、')}</div>`:''}
-    ${x2.length?`<div class='row bad'>2×：${x2.join('、')}</div>`:''}
-    ${h.length?`<div class='row good'>抵抗：${h.join('、')}</div>`:''}
-    ${z.length?`<div class='row no'>免疫：${z.join('、')}</div>`:''}`;
-
-  if(selected.length===1){
-    const a=data[selected[0]];
-    atkPanel.innerHTML=`<div class='row'>⚔️ <b>${selected[0]}</b> 进攻</div>
-      <div class='row good'>克制：${a.good.join('、')||'无'}</div>
-      <div class='row bad'>被抗：${a.bad.join('、')||'无'}</div>
-      <div class='row no'>无效：${a.no.join('、')||'无'}</div>`;
-  } else atkPanel.innerHTML='<div class="muted">双属性仅显示防守综合结果</div>';
-}
-</script>
-<script>
-// PWA Service Worker 注册
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('sw.js');
-  });
-}
-</script>
+  </script>
 </body>
 </html>
